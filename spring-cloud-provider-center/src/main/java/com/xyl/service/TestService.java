@@ -13,6 +13,7 @@ import com.xyl.response.Response;
 /**
  * 端口9201
  * @author xyl
+ * @EnableAutoConfiguration:开启自动配置
  *
  */
 @RestController

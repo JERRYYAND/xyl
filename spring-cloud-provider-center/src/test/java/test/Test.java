@@ -19,7 +19,7 @@ public class Test {
 
 	public static void main(String[] args)throws Exception {
         
-		String url = "http://localhost:9201/hello-word-service";
+		String url = "http://localhost:9300/hello-word-service";
 		Request re = new Request();
 		re.setMemberId(349);
 		re.setSession("");

@@ -7,6 +7,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
  * 提供者:provider
+ * 一个@SpringbootApplication相当于@Configuration,@EnableAutoConfiguration和 @ComponentScan
  */
 @EnableEurekaClient
 @SpringBootApplication
