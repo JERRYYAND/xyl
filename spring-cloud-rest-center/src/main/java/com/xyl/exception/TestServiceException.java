@@ -6,7 +6,7 @@ import com.xyl.RequestURLConstant;
 import com.xyl.service.TestService;
 
 /**
- * 编写程序错误时的回调类，实现接口(BaseService接口 )，在错误时回调
+ * 编写程序错误时的回调类，在错误时回调
  * @author  xyl
  *
  */
