@@ -38,48 +38,38 @@ public class DruidConfiguration {
 	@Value("${spring.datasource.driver-class-name}")
 	private String driver;
 
-	@Value("${spring.datasource.initialSize}")
+	@Value("${spring.datasource.dbcp2.initial-size}")
 	private Integer initialSize;
 
-	@Value("${spring.datasource.minIdle}")
+	@Value("${spring.datasource.dbcp2.min-idle}")
 	private Integer minIdle;
 
-	@Value("${spring.datasource.maxActive}")
+	@Value("${spring.datasource.dbcp2.max-total}")
 	private Integer maxActive;
 
-	@Value("${spring.datasource.maxWait}")
+	@Value("${spring.datasource.dbcp2.max-wait-millis}")
 	private Integer maxWait;
 
-	@Value("${spring.datasource.timeBetweenEvictionRunsMillis}")
-	private Long timeBetweenEvictionRunsMillis;
 
-	@Value("${spring.datasource.minEvictableIdleTimeMillis}")
+	@Value("${spring.datasource.dbcp2.soft-min-evictable-idle-time-millis}")
 	private Long minEvictableIdleTimeMillis;
 
-	@Value("${spring.datasource.validationQuery}")
+	@Value("${spring.datasource.dbcp2.validation-query}")
 	private String validationQuery;
 
-	@Value("${spring.datasource.testWhileIdle}")
+	@Value("${spring.datasource.dbcp2.test-while-idle}")
 	private Boolean testWhileIdle;
 
-	@Value("${spring.datasource.testOnBorrow}")
+	@Value("${spring.datasource.dbcp2.test-on-borrow}")
 	private Boolean testOnBorrow;
 
-	@Value("${spring.datasource.testOnReturn}")
+	@Value("${spring.datasource.dbcp2.test-on-return}")
 	private Boolean testOnReturn;
 
-	@Value("${spring.datasource.poolPreparedStatements}")
+	@Value("${spring.datasource.dbcp2.pool-prepared-statements}")
 	private Boolean poolPreparedStatements;
 	
-	@Value("${spring.datasource.maxPoolPreparedStatementPerConnectionSize}")
-	private Integer maxPoolPreparedStatementPerConnectionSize;
-
-	@Value("${spring.datasource.filters}")
-	private String filters;
-
-	@Value("${spring.datasource.connectionProperties}")
-	private String connectionProperties;
-
+	
 
 	public String getUrl() {
 		return url;
@@ -113,9 +103,7 @@ public class DruidConfiguration {
 		return maxWait;
 	}
 
-	public Long getTimeBetweenEvictionRunsMillis() {
-		return timeBetweenEvictionRunsMillis;
-	}
+	
 
 	public Long getMinEvictableIdleTimeMillis() {
 		return minEvictableIdleTimeMillis;
@@ -141,28 +129,9 @@ public class DruidConfiguration {
 		return poolPreparedStatements;
 	}
 
-	public Integer getMaxPoolPreparedStatementPerConnectionSize() {
-		return maxPoolPreparedStatementPerConnectionSize;
-	}
+	
 
-	public String getFilters() {
-		return filters;
-	}
-
-	public Properties getConnectionProperties() {
-		Properties pro = new Properties();
-		if(connectionProperties.indexOf(";") != -1){
-			String[] tmp = connectionProperties.split(";");
-			for(String str : tmp){
-				String[] tempArr = str.split("=");
-				pro.put(tempArr[0], tempArr[1]);
-			}
-		}else{
-			String[] tempArr = connectionProperties.split("=");
-			pro.put(tempArr[0], tempArr[1]);
-		}
-		return pro;
-	}
+	
 
 	public void setUrl(String url) {
 		this.url = url;
@@ -196,10 +165,7 @@ public class DruidConfiguration {
 		this.maxWait = maxWait;
 	}
 
-	public void setTimeBetweenEvictionRunsMillis(
-			Long timeBetweenEvictionRunsMillis) {
-		this.timeBetweenEvictionRunsMillis = timeBetweenEvictionRunsMillis;
-	}
+
 
 	public void setMinEvictableIdleTimeMillis(Long minEvictableIdleTimeMillis) {
 		this.minEvictableIdleTimeMillis = minEvictableIdleTimeMillis;
@@ -225,19 +191,9 @@ public class DruidConfiguration {
 		this.poolPreparedStatements = poolPreparedStatements;
 	}
 
-	public void setMaxPoolPreparedStatementPerConnectionSize(
-			Integer maxPoolPreparedStatementPerConnectionSize) {
-		this.maxPoolPreparedStatementPerConnectionSize = maxPoolPreparedStatementPerConnectionSize;
-	}
+	
 
-	public void setFilters(String filters) {
-		this.filters = filters;
-	}
-
-	public void setConnectionProperties(String connectionProperties) {
-		this.connectionProperties = connectionProperties;
-	}
-
+	
 	
 	@Bean(name = "dataSource")
 	@Primary
@@ -253,20 +209,12 @@ public class DruidConfiguration {
 		dds.setMinIdle(minIdle);
 		dds.setMaxActive(maxActive);
 		dds.setMaxWait(maxWait);
-		dds.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis);
 		dds.setMinEvictableIdleTimeMillis(minEvictableIdleTimeMillis);
 		dds.setValidationQuery(validationQuery);
 		dds.setTestWhileIdle(testWhileIdle);
 		dds.setTestOnBorrow(testOnBorrow);
 		dds.setTestOnReturn(testOnReturn);
 		dds.setPoolPreparedStatements(poolPreparedStatements);
-		dds.setMaxPoolPreparedStatementPerConnectionSize(maxPoolPreparedStatementPerConnectionSize);
-		try {
-			dds.setFilters(filters);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		 dds.setConnectProperties(getConnectionProperties());
 		return dds;
 	}
 	
