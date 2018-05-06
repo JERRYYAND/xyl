@@ -1,0 +1,13 @@
+#是否向注册中心注册自己，是否检索服务
+eureka:
+  client:
+   fetch-registry: false
+   register-with-eureka: false
+
+server:
+  port: 9100
+
+spring:
+  application:
+    name: eureka-server-register-center
+    
