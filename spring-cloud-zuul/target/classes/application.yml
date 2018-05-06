@@ -1,0 +1,20 @@
+ 
+ eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9100/eureka/
+      
+ server: 
+  port: 9500
+  spring: 
+  application:
+    name: spring-cloud-rest-center
+ 
+ zuul:
+  routes:
+    users:
+      path: /myusers/**
+      serviceId: users_service
+      
+      
+    
