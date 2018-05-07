@@ -50,6 +50,11 @@
 			<artifactId>fastjson</artifactId>
 			<version>1.2.24</version>
 		</dependency>
+		<dependency>
+	<groupId>com.xyl</groupId>
+	<artifactId>spring-cloud-service-api</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+</dependency>
 	</dependencies>
 	
 	 <dependencyManagement>
