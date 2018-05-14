@@ -1,0 +1,28 @@
+
+server:
+  port: 9200
+ 
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIG
+      profile: dev  
+   
+  
+
+    
+   
+    
+  
+  
+  
+      
+
+
+
+      
+      
