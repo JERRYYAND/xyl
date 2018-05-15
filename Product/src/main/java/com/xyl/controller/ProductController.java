@@ -29,6 +29,11 @@ public class ProductController {
 	 */
 	@RequestMapping(value="/list")
 	public String listProduct() {
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		 String selectProductInfo = productServer.selectProductInfo();
 		
 		return selectProductInfo;
