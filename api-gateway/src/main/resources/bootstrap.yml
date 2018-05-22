@@ -11,6 +11,14 @@ spring:
         enabled: true
         service-id: CONFIG
       profile: dev  
+      
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000         
    
   
 
