@@ -16,5 +16,12 @@ spring:
           uri: https://gitee.com/myxyl/config-repo
           username: 15118042153@163.com
           password: 159357xuyalin
-          basedir: D:\Java\basedir
+          basedir: D:\Java\config\basedir
+
+#config server暴露bus-refresh
+management:
+  endpoints:
+    web:
+      expose: "*"           
+            
             
