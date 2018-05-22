@@ -1,6 +1,8 @@
 package com.xyl.server;
 
+import com.xyl.model.GetuiModel;
+
 public interface OrderServie {
 
-	String selectOrderInfo();
+	GetuiModel selectOrderInfo(Integer id);
 }

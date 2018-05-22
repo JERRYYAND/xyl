@@ -9,7 +9,6 @@ import com.xyl.client.ProductClient;
 import groovy.util.logging.Slf4j;
 
 @RestController
-@Slf4j
 public class ClientController {
 	@Autowired
 	private ProductClient productClient;
